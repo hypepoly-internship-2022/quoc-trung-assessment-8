@@ -11,32 +11,32 @@ public class GenerateStars : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-    
+
     }
 
-    int GenerateRandomNumber()
+    int GetRandomNumber()
     {
         return Random.Range(0, 4);
     }
 
     void StartGenerateStars()
     {
-        int randomIndex = GenerateRandomNumber();
-        if(randomIndex == 0)
+        int randomIndex = GetRandomNumber();
+        if (randomIndex == 0)
         {
             return;
         }
         else
         {
-            for (int i = 0; i < GenerateRandomNumber(); i++)
+            for (int i = 0; i < randomIndex; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
             }
-        }   
+        }
     }
 }

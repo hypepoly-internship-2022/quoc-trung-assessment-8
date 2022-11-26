@@ -7,40 +7,44 @@ public class GenerateLevels : MonoBehaviour
 {
     [SerializeField] GameObject levelButtonPrefab;
     [SerializeField] Transform parent;
-    List<GameObject> levelButtons;
+    //List<GameObject> levelButtons;
 
     private void Awake()
     {
-        levelButtons = new List<GameObject>();
+        //levelButtons = new List<GameObject>();
         StartGenerateButtons();
     }
 
     void Start()
     {
-        
-        
+
+
     }
 
     void Update()
     {
-        
+
     }
 
-    GameObject CreateButton(int index)
+    GameObject CreateLevelSeclectButtons(int index)
     {
-        GameObject button;
-        button = Instantiate(levelButtonPrefab, parent);
-        levelButtons.Add(button);
-        button.GetComponentInChildren<Transform>().gameObject.GetComponentInChildren<TextMeshProUGUI>().text = index.ToString();
-        return button;
+        GameObject levelSelectUI;
+        Button levelSelectButton;
+        TextMeshProUGUI levelText;
+        levelSelectUI = Instantiate(levelButtonPrefab, parent);
+        //levelButtons.Add(levelSelectUI);
+        levelSelectButton = levelSelectUI.GetComponentInChildren<Button>();
+        levelText = levelSelectButton.GetComponentInChildren<TextMeshProUGUI>();
+        levelText.text = index.ToString();
+        return levelSelectUI;
     }
 
     void StartGenerateButtons()
     {
-        for (int i = 1 ; i <= 100; i++)
+        for (int i = 1; i <= 100; i++)
         {
-            CreateButton(i);
+            CreateLevelSeclectButtons(i);
         }
     }
-     
+
 }
